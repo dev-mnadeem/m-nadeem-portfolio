@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Muhammad Nadeem — Senior Full Stack AI Engineer, Senior AI/ML Engineer, Senior Python Engineer.">
+<meta name="theme-color" content="#eef6ff">
+<title>Muhammad Nadeem | Senior Full Stack AI Engineer</title>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2215%22%20fill%3D%22%230d2547%22%2F%3E%0A%3Cpath%20d%3D%22M14%2044V20h6l12%2015%2012-15h6v24h-7V31L32%2044%2021%2031v13z%22%20fill%3D%22%23ffffff%22%2F%3E%0A%3Cpath%20d%3D%22M14%2015h36%22%20stroke%3D%22%232ed4ff%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E">
+<link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2215%22%20fill%3D%22%230d2547%22%2F%3E%0A%3Cpath%20d%3D%22M14%2044V20h6l12%2015%2012-15h6v24h-7V31L32%2044%2021%2031v13z%22%20fill%3D%22%23ffffff%22%2F%3E%0A%3Cpath%20d%3D%22M14%2015h36%22%20stroke%3D%22%232ed4ff%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E">
+<link rel="canonical" href="https://m-nadeem.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Muhammad Nadeem | Senior Full Stack AI Engineer">
+<meta property="og:description" content="Senior Full Stack AI Engineer building production AI, scalable software systems, and cloud-native products.">
+<meta property="og:url" content="https://m-nadeem.vercel.app/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Muhammad Nadeem | Senior Full Stack AI Engineer">
+<meta name="twitter:description" content="Senior Full Stack AI Engineer building production AI, scalable software systems, and cloud-native products.">
+<meta name="twitter:url" content="https://m-nadeem.vercel.app/">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#f5f9ff;
+  --paper:#ffffff;
+  --ink:#10213d;
+  --muted:#536783;
+  --soft:#7890ad;
+  --blue:#1769ff;
+  --blue2:#4ca5ff;
+  --cyan:#2ed4ff;
+  --line:#dce8f5;
+  --glass:rgba(255,255,255,.72);
+  --shadow:0 22px 70px rgba(35,87,145,.12);
+  --radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 8% 10%,rgba(76,165,255,.13),transparent 30%),
+  radial-gradient(circle at 90% 15%,rgba(46,212,255,.12),transparent 25%),
+  var(--bg);
+  color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button,a{ -webkit-tap-highlight-color:transparent}
+::selection{background:#b9dcff;color:#071a36}
+
+#ai-canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.65}
+.site{position:relative;z-index:1}
+.container{width:min(1180px,calc(100% - 42px));margin:auto}
+
+nav{
+  position:sticky;top:0;z-index:20;
+  height:72px;background:rgba(247,251,255,.82);
+  backdrop-filter:blur(18px);border-bottom:1px solid rgba(202,220,239,.75)
+}
+.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:11px;font-family:"Space Grotesk";font-weight:700}
+.brand-mark{
+  width:37px;height:37px;border-radius:12px;display:grid;place-items:center;
+  color:#fff;background:linear-gradient(145deg,#1769ff,#38c9ff);
+  box-shadow:0 8px 22px rgba(23,105,255,.25)
+}
+.brand small{display:block;color:var(--muted);font:500 10px "DM Sans";letter-spacing:.12em;text-transform:uppercase;margin-top:2px}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:13px;color:#405777}
+.nav-links a{position:relative;padding:27px 0}
+.nav-links a:after{content:"";position:absolute;left:0;right:100%;bottom:18px;height:2px;background:var(--blue);transition:.25s}
+.nav-links a:hover:after{right:0}
+.nav-cta{padding:11px 16px;border-radius:13px;background:#102a52;color:#fff;font-weight:700;font-size:12px;box-shadow:0 8px 22px rgba(16,42,82,.15)}
+.menu{display:none}
+
+.hero{padding:86px 0 58px;min-height:calc(100vh - 72px);display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;border:1px solid #cce0f6;background:rgba(255,255,255,.72);
+  padding:9px 13px;border-radius:999px;color:#2163bb;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase
+}
+.eyebrow i,.available i{width:7px;height:7px;border-radius:50%;background:#16c784;box-shadow:0 0 0 5px rgba(22,199,132,.11)}
+.hero h1{font:700 clamp(52px,7vw,88px)/.92 "Space Grotesk";letter-spacing:-.065em;margin:24px 0 18px;max-width:760px}
+.hero h1 span{display:block}
+.hero h1 .accent{color:var(--blue)}
+.hero-copy{max-width:650px;font-size:17px;line-height:1.8;color:#4a6280}
+.role-wrap{margin:25px 0 0;min-height:122px}
+.role-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7890ad;font-weight:700}
+.role-title{
+  margin-top:9px;font:700 clamp(27px,4vw,48px)/1.05 "Space Grotesk";color:#12325c;
+  transition:opacity .35s,transform .35s
+}
+.role-title.out{opacity:0;transform:translateY(10px)}
+.available{
+  margin-top:14px;display:inline-flex;align-items:center;gap:9px;padding:10px 13px;border:1px solid #cce0f6;
+  background:#fff;border-radius:999px;font-size:12px;font-weight:700;color:#214b7d;box-shadow:0 9px 25px rgba(27,83,145,.08);
+  transition:.35s
+}
+.available strong{font-weight:800}
+.hero-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 18px;border-radius:14px;
+  border:1px solid #cddff2;background:#fff;color:#18345a;font-weight:700;font-size:13px;transition:.25s;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 13px 30px rgba(32,89,149,.12)}
+.btn.primary{background:linear-gradient(135deg,#1769ff,#2999ff);border-color:transparent;color:#fff;box-shadow:0 13px 28px rgba(23,105,255,.22)}
+.btn.primary:hover{box-shadow:0 18px 35px rgba(23,105,255,.3)}
+.hero-note{margin-top:23px;color:#7890ad;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+
+.hero-visual{position:relative;min-height:560px;display:grid;place-items:center}
+.avatar-stage{
+  width:min(510px,100%);height:540px;position:relative;perspective:1200px;
+}
+.avatar-card{
+  position:absolute;inset:38px 30px 20px 38px;border-radius:38px;
+  background:linear-gradient(145deg,#e9f5ff,#dceeff 55%,#eefaff);
+  border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow);overflow:hidden;
+  transform:rotateY(-7deg) rotateX(2deg);transition:transform .6s ease;
+}
+.avatar-stage:hover .avatar-card{transform:rotateY(0deg) rotateX(0deg) translateY(-5px)}
+.avatar-card:before{
+  content:"";position:absolute;inset:0;background:
+  radial-gradient(circle at 72% 22%,rgba(46,212,255,.34),transparent 25%),
+  radial-gradient(circle at 25% 80%,rgba(23,105,255,.24),transparent 30%);
+}
+.avatar{position:absolute;inset:40px 45px 0;display:flex;align-items:flex-end;justify-content:center}
+.avatar img{height:100%;max-width:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 24px 25px rgba(12,51,95,.18))}
+.ring{position:absolute;width:420px;height:420px;border:1px dashed rgba(23,105,255,.27);border-radius:50%;top:60px;left:50%;transform:translateX(-50%);animation:spin 26s linear infinite}
+.ring:before,.ring:after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--blue)}
+.ring:before{top:24px;left:45px}.ring:after{right:25px;bottom:62px;background:var(--cyan)}
+.tech{
+  position:absolute;padding:9px 12px;border-radius:13px;background:rgba(255,255,255,.88);border:1px solid #d6e6f5;
+  box-shadow:0 12px 25px rgba(22,72,122,.1);font-size:11px;font-weight:800;color:#25486f;backdrop-filter:blur(10px);
+  animation:float 4s ease-in-out infinite
+}
+.tech b{color:var(--blue)}
+.t1{top:45px;right:4px}.t2{top:160px;left:0;animation-delay:.5s}.t3{right:0;top:280px;animation-delay:1s}.t4{left:22px;bottom:90px;animation-delay:1.4s}
+.status-card{position:absolute;right:-6px;bottom:28px;background:#fff;border:1px solid #d9e8f6;padding:14px 16px;border-radius:18px;box-shadow:0 17px 38px rgba(20,69,119,.12);font-size:11px;font-weight:700}
+.status-card span{display:block;color:#7890ad;font-size:10px;margin-bottom:5px}
+.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#18c983;margin-right:6px}
+.code-card{position:absolute;left:-10px;top:100px;background:#0b2140;color:#bfe2ff;border-radius:17px;padding:14px 17px;width:150px;font:11px/1.65 ui-monospace,monospace;box-shadow:0 18px 35px rgba(8,31,60,.22);transform:rotate(-4deg);animation:float 5s ease-in-out infinite}
+.code-card .c{color:#5eb4ff}.code-card .g{color:#54e5bb}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:35px}
+.stat{padding:17px;border:1px solid var(--line);background:rgba(255,255,255,.75);border-radius:18px}
+.stat strong{font:700 25px "Space Grotesk";display:block}.stat span{font-size:11px;color:var(--muted)}
+
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.66);overflow:hidden}
+.ticker-track{display:flex;width:max-content;gap:10px;padding:13px 0;animation:marquee 30s linear infinite}
+.ticker span{padding:8px 13px;border-radius:999px;border:1px solid #d7e6f4;background:#fff;font-size:11px;font-weight:700;color:#46617e}
+
+section{padding:100px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
+.kicker{font-size:11px;color:var(--blue);letter-spacing:.15em;text-transform:uppercase;font-weight:800;margin-bottom:9px}
+h2{font:700 clamp(34px,4vw,52px)/1 "Space Grotesk";letter-spacing:-.04em;margin:0}
+.section-intro{max-width:520px;color:var(--muted);line-height:1.75}
+
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+.panel{background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:0 12px 45px rgba(40,88,135,.07)}
+.about-text{font-size:16px;line-height:1.85;color:#435b78}
+.about-list{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:22px}
+.about-list div{padding:13px;border-radius:14px;background:#f4f9ff;border:1px solid #e1edf8;font-size:12px;font-weight:700;color:#365577}
+.about-list b{color:var(--blue)}
+.signal{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.signal:last-child{border-bottom:0}.signal .num{font:700 28px "Space Grotesk";color:var(--blue);min-width:60px}.signal p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+
+.timeline{position:relative}
+.timeline:before{content:"";position:absolute;left:24px;top:10px;bottom:10px;width:1px;background:#cfe0f0}
+.exp{display:grid;grid-template-columns:130px 1fr;gap:28px;position:relative;padding:26px 0}
+.exp .date{font-size:11px;color:#7890ad;line-height:1.55;padding-top:4px}
+.exp-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px 26px;box-shadow:0 10px 35px rgba(34,83,130,.06)}
+.exp-card:before{content:"";position:absolute;left:-36px;top:31px;width:10px;height:10px;border-radius:50%;background:#fff;border:3px solid var(--blue);box-shadow:0 0 0 6px #edf6ff}
+.exp-top{display:flex;justify-content:space-between;gap:20px}.exp-title{font:700 21px "Space Grotesk"}.company{margin-top:4px;color:var(--blue);font-weight:700;font-size:12px}.tag{white-space:nowrap;padding:7px 9px;border-radius:999px;background:#eef6ff;color:#2a64a8;font-size:10px;font-weight:800;height:max-content}
+.exp-card p{color:var(--muted);line-height:1.7;font-size:13px;margin:16px 0 0}
+.bullets{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.bullets span{font-size:10px;padding:7px 9px;background:#f4f8fc;border:1px solid #e1ebf4;border-radius:9px;color:#506b88;font-weight:700}
+
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.project{display:block;background:#fff;border:1px solid var(--line);border-radius:23px;padding:24px;min-height:300px;transition:.3s;position:relative;overflow:hidden}
+.project:before{content:"";position:absolute;width:160px;height:160px;border-radius:50%;background:#e8f4ff;right:-60px;top:-65px;transition:.35s}
+.project:hover{transform:translateY(-8px);box-shadow:0 25px 55px rgba(29,86,139,.13);border-color:#bdd9f3}
+.project:hover:before{transform:scale(1.35)}
+.project-index{position:relative;color:#7991ab;font-size:10px;font-weight:800;letter-spacing:.12em}
+.project h3{position:relative;font:700 27px "Space Grotesk";margin:22px 0 10px}.project p{position:relative;color:var(--muted);font-size:13px;line-height:1.65}.project-link{position:absolute;left:24px;bottom:22px;color:var(--blue);font-weight:800;font-size:12px}
+.project-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}.project-tags span{font-size:10px;padding:7px 9px;border-radius:8px;background:#f1f7fd;color:#496986;border:1px solid #e0ebf5;font-weight:700}
+
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.skill{padding:20px;border:1px solid var(--line);background:#fff;border-radius:18px;transition:.25s}
+.skill:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(32,84,132,.08)}
+.skill strong{font:700 15px "Space Grotesk";display:block;margin-bottom:10px}.skill p{margin:0;color:var(--muted);font-size:12px;line-height:1.7}
+
+.contact{
+  padding:60px 0 70px;background:#0d2547;color:#fff;position:relative;overflow:hidden
+}
+.contact:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(39,160,255,.16);right:-100px;top:-220px;filter:blur(8px)}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;position:relative}
+.contact h2{max-width:700px}.contact p{color:#b8cae1;line-height:1.8;max-width:650px}
+.contact-links{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:26px}
+.contact-link{padding:16px;border:1px solid rgba(185,213,241,.2);background:rgba(255,255,255,.05);border-radius:15px}
+.contact-link small{display:block;color:#7f9bb9;font-size:10px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:5px}.contact-link strong{font-size:12px}
+.contact-card{border:1px solid rgba(188,217,246,.2);background:rgba(255,255,255,.06);border-radius:23px;padding:26px;align-self:center}
+.contact-card code{display:block;color:#a9ddff;font:12px/2 ui-monospace,monospace}
+footer{background:#081a33;color:#7f9ab8;padding:18px 0;font-size:11px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:none}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes spin{to{transform:translateX(-50%) rotate(360deg)}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}.menu{display:block;border:0;background:#fff;padding:10px;border-radius:10px}
+  .hero{grid-template-columns:1fr;padding-top:60px}.hero-visual{order:-1;min-height:480px}.avatar-stage{height:460px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.contact-grid{grid-template-columns:1fr}.projects{grid-template-columns:1fr 1fr}.skills{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .container{width:min(100% - 28px,1180px)}
+  nav{height:64px}.brand small{display:none}.hero{padding:55px 0 40px}.hero h1{font-size:54px}.hero-copy{font-size:15px}
+  .hero-visual{min-height:390px}.avatar-stage{height:390px}.avatar-card{inset:24px 14px 10px}.ring{width:310px;height:310px;top:55px}.avatar{inset:20px 24px 0}.code-card,.t2{display:none}.t1{top:18px;right:0}.t3{right:0;top:205px}.t4{left:0;bottom:45px}
+  .role-wrap{min-height:145px}.role-title{font-size:34px}.stats{grid-template-columns:1fr 1fr}.section-head{display:block}.section-intro{margin-top:16px}
+  .about-list{grid-template-columns:1fr}.projects,.skills{grid-template-columns:1fr}.exp{grid-template-columns:1fr;gap:7px;padding-left:32px}.timeline:before{left:8px}.exp-card:before{left:-29px}
+  .contact-links{grid-template-columns:1fr}.footer-inner{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
+</style>
+
+<style id="nadeem-hover-upgrade">
+/* --- Interactive color upgrade --- */
+.btn, .button, a.btn, .cta, .project-card, .project-link, .tag, .chip {
+  transition:
+    transform .28s cubic-bezier(.2,.8,.2,1),
+    background-color .28s ease,
+    color .28s ease,
+    border-color .28s ease,
+    box-shadow .28s ease,
+    letter-spacing .28s ease;
+}
+.btn:hover, .button:hover, a.btn:hover, .cta:hover {
+  transform: translateY(-3px);
+  background: #0a8fb2 !important;
+  color: #ffffff !important;
+  border-color: #0a8fb2 !important;
+  box-shadow: 0 12px 30px rgba(10,143,178,.24);
+}
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 30%, rgba(71,201,232,.12), transparent 70%);
+  transform: translateX(-120%);
+  transition: transform .6s ease;
+}
+.project-card:hover::after {
+  transform: translateX(120%);
+}
+.project-card { transform: perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)); }
+.project-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: #49c8e7 !important;
+  box-shadow: 0 20px 45px rgba(17,121,151,.16);
+}
+.project-card:hover .project-link,
+.project-card:hover a {
+  color: #087d9e !important;
+}
+.tag:hover, .chip:hover {
+  background: #0a8fb2 !important;
+  color: #fff !important;
+  border-color: #0a8fb2 !important;
+  transform: translateY(-2px);
+}
+</style>
+
+
+<style id="project-light-blue-hover">
+.project-card {
+  position: relative !important;
+  overflow: hidden !important;
+  transition:
+    background-color .32s ease,
+    border-color .32s ease,
+    box-shadow .32s ease,
+    transform .32s cubic-bezier(.2,.8,.2,1) !important;
+}
+.project-card::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(135deg, rgba(207,242,255,.92), rgba(232,249,255,.72)) !important;
+  opacity: 0 !important;
+  transition: opacity .32s ease !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+.project-card > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+.project-card:hover {
+  background: #dff6ff !important;
+  border-color: #55c8ee !important;
+  color: #102a36 !important;
+  box-shadow: 0 20px 48px rgba(52,177,220,.28) !important;
+  transform: translateY(-8px) !important;
+}
+.project-card:hover::before {
+  opacity: 1 !important;
+}
+.project-card:hover h1,
+.project-card:hover h2,
+.project-card:hover h3,
+.project-card:hover h4,
+.project-card:hover p,
+.project-card:hover span,
+.project-card:hover li {
+  color: #173746 !important;
+}
+.project-card:hover a,
+.project-card:hover .project-link {
+  color: #087ea8 !important;
+  border-color: #087ea8 !important;
+}
+.project-card:hover .tag,
+.project-card:hover .chip {
+  background: #b9ebfa !important;
+  color: #075d78 !important;
+  border-color: #55c8ee !important;
+}
+</style>
+
+
+<style id="project-blue-hover-final">
+/* Final project hover behavior: entire project card turns blue */
+.project{
+  transition:
+    transform .30s cubic-bezier(.2,.8,.2,1),
+    background .30s ease,
+    border-color .30s ease,
+    box-shadow .30s ease,
+    color .30s ease !important;
+}
+.project:hover{
+  background: linear-gradient(135deg,#1769ff,#2999ff) !important;
+  border-color:#1769ff !important;
+  color:#fff !important;
+  transform:translateY(-8px) !important;
+  box-shadow:0 25px 55px rgba(23,105,255,.28) !important;
+}
+.project:hover::before{
+  background:rgba(255,255,255,.13) !important;
+  transform:scale(1.35) !important;
+}
+.project:hover .project-index,
+.project:hover h3,
+.project:hover p,
+.project:hover .project-link{
+  color:#fff !important;
+}
+.project:hover .project-tags span{
+  background:rgba(255,255,255,.16) !important;
+  border-color:rgba(255,255,255,.30) !important;
+  color:#fff !important;
+}
+</style>
+
+
+<style id="portrait-removed-layout">
+.avatar-card{
+  background:
+    radial-gradient(circle at 70% 25%,rgba(46,212,255,.32),transparent 26%),
+    radial-gradient(circle at 28% 75%,rgba(23,105,255,.20),transparent 32%),
+    linear-gradient(145deg,#e9f5ff,#dceeff 55%,#eefaff);
+}
+</style>
+
+
+<style id="mature-systems-hero">
+.hero-visual{
+  position:relative;
+  min-height:560px;
+  display:grid;
+  place-items:center;
+}
+
+.systems-stage{
+  width:min(520px,100%);
+  height:520px;
+  position:relative;
+  border-radius:42px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(23,105,255,.12), transparent 28%),
+    radial-gradient(circle at 70% 20%, rgba(46,212,255,.14), transparent 24%),
+    linear-gradient(145deg,rgba(255,255,255,.86),rgba(231,244,255,.80));
+  border:1px solid rgba(190,215,241,.82);
+  box-shadow:0 28px 80px rgba(34,83,130,.12);
+  backdrop-filter:blur(12px);
+}
+
+.systems-stage:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(23,105,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(23,105,255,.035) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.75),transparent 92%);
+}
+
+.systems-core{
+  position:absolute;
+  left:50%;
+  top:47%;
+  width:132px;
+  height:132px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+}
+
+.core-halo{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:1px solid rgba(23,105,255,.20);
+}
+.halo-a{animation:haloPulse 4.8s ease-in-out infinite}
+.halo-b{
+  inset:16px;
+  border-color:rgba(46,212,255,.28);
+  animation:haloPulse 4.8s ease-in-out infinite reverse;
+}
+.core-dot{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#1769ff,#38c9ff);
+  box-shadow:
+    0 0 0 12px rgba(23,105,255,.08),
+    0 14px 35px rgba(23,105,255,.25);
+}
+.core-label{
+  position:absolute;
+  top:146px;
+  font:700 10px "Space Grotesk";
+  letter-spacing:.18em;
+  color:#4b6d95;
+}
+
+.orbit{
+  position:absolute;
+  left:50%;
+  top:47%;
+  border-radius:50%;
+  border:1px solid rgba(23,105,255,.14);
+  transform:translate(-50%,-50%);
+}
+.orbit-a{width:245px;height:245px;animation:orbitSpin 18s linear infinite}
+.orbit-b{width:340px;height:340px;animation:orbitSpinReverse 28s linear infinite}
+.orbit-c{width:430px;height:430px;border-style:dashed;animation:orbitSpin 40s linear infinite}
+
+.orbit-node{
+  position:absolute;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#1769ff;
+  box-shadow:0 0 0 7px rgba(23,105,255,.10);
+}
+.node-a{top:-5px;left:50%}
+.node-b{right:-5px;top:58%}
+.node-c{left:12%;top:8%;background:#2ed4ff}
+.node-d{right:7%;bottom:16%}
+.node-e{left:3%;top:56%;background:#38c9ff}
+
+.signal-line{
+  position:absolute;
+  height:1px;
+  transform-origin:left center;
+  background:linear-gradient(90deg,rgba(23,105,255,.45),rgba(23,105,255,0));
+  opacity:.55;
+}
+.signal-1{width:150px;left:48%;top:47%;transform:rotate(-28deg)}
+.signal-2{width:180px;left:50%;top:49%;transform:rotate(24deg)}
+.signal-3{width:165px;left:49%;top:46%;transform:rotate(152deg)}
+
+.system-chip{
+  position:absolute;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,.90);
+  border:1px solid #d6e6f5;
+  box-shadow:0 12px 28px rgba(22,72,122,.08);
+  font-size:11px;
+  font-weight:800;
+  color:#294f78;
+  backdrop-filter:blur(10px);
+  animation:chipFloat 6s ease-in-out infinite;
+}
+.system-chip span{
+  width:7px;height:7px;border-radius:50%;
+  background:linear-gradient(145deg,#1769ff,#38c9ff);
+}
+.chip-1{left:34px;top:72px}
+.chip-2{right:30px;top:112px;animation-delay:1s}
+.chip-3{left:42px;bottom:96px;animation-delay:2s}
+.chip-4{right:42px;bottom:124px;animation-delay:3s}
+
+.system-status{
+  position:absolute;
+  left:50%;
+  bottom:22px;
+  transform:translateX(-50%);
+  width:calc(100% - 44px);
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:15px 17px;
+  border-radius:18px;
+  background:rgba(255,255,255,.88);
+  border:1px solid #d9e8f6;
+  box-shadow:0 16px 36px rgba(20,69,119,.09);
+}
+.system-status-dot{
+  width:9px;height:9px;border-radius:50%;
+  background:#18c983;
+  box-shadow:0 0 0 6px rgba(24,201,131,.10);
+}
+.system-status small{
+  display:block;
+  color:#7890ad;
+  font-size:10px;
+  margin-bottom:4px;
+}
+.system-status strong{
+  font-size:12px;
+  color:#17375f;
+}
+
+@keyframes orbitSpin{
+  to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+@keyframes orbitSpinReverse{
+  to{transform:translate(-50%,-50%) rotate(-360deg)}
+}
+@keyframes haloPulse{
+  0%,100%{transform:scale(.96);opacity:.55}
+  50%{transform:scale(1.08);opacity:1}
+}
+@keyframes chipFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+@media(max-width:900px){
+  .hero-visual{min-height:470px}
+  .systems-stage{height:450px}
+  .orbit-c{width:365px;height:365px}
+  .orbit-b{width:300px;height:300px}
+}
+@media(max-width:600px){
+  .hero-visual{min-height:400px}
+  .systems-stage{height:390px;border-radius:28px}
+  .orbit-a{width:190px;height:190px}
+  .orbit-b{width:255px;height:255px}
+  .orbit-c{width:320px;height:320px}
+  .systems-core{top:45%}
+  .chip-1{left:14px;top:42px}
+  .chip-2{right:14px;top:75px}
+  .chip-3{left:16px;bottom:84px}
+  .chip-4{right:16px;bottom:105px}
+}
+@media(prefers-reduced-motion:reduce){
+  .orbit,.core-halo,.system-chip{animation:none!important}
+}
+</style>
+
+
+<style id="spacing-visibility-fixes">
+/* Experience date: keep location/REMOTE clear of the timeline marker */
+@media (min-width: 901px){
+  .exp{
+    grid-template-columns: 175px 1fr !important;
+    gap: 30px !important;
+  }
+  .exp .date{
+    white-space: nowrap;
+    padding-right: 12px;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/* Project cards: reserve a clean footer area so tags never touch the link */
+.project{
+  min-height: 320px !important;
+  padding-bottom: 76px !important;
+}
+.project-tags{
+  margin-top: 16px !important;
+  margin-bottom: 18px !important;
+}
+.project-link{
+  left: 24px !important;
+  bottom: 24px !important;
+  line-height: 1.35;
+}
+
+/* Extra breathing room on compact widths */
+@media (max-width: 900px){
+  .project{
+    min-height: 330px !important;
+    padding-bottom: 78px !important;
+  }
+}
+</style>
+
+</head>
+<body>
+<canvas id="ai-canvas" aria-hidden="true"></canvas>
+<div class="site">
+
+<nav>
+  <div class="container nav-inner">
+    <a class="brand" href="#home">
+      <span class="brand-mark">MN</span>
+      <span>Muhammad Nadeem<small>Full Stack · AI · Python</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#experience">Experience</a>
+      <a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="mailto:mn.nadeem027@gmail.com">Let's Talk ↗</a>
+    <button class="menu" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Open navigation">☰</button>
+  </div>
+</nav>
+
+<main id="home">
+<section class="hero container">
+  <div>
+    <div class="eyebrow"><i></i> 8+ YEARS · PRODUCTION SOFTWARE & AI</div>
+    <h1><span>Muhammad</span><span class="accent">Nadeem.</span></h1>
+    <div class="role-wrap">
+      <div class="role-label">Currently building as</div>
+      <div class="role-title" id="roleTitle">Senior Full Stack AI Engineer</div>
+      <div class="available" id="availability"><i></i><strong>AVAILABLE FOR FULL STACK WORK</strong></div>
+    </div>
+    <p class="hero-copy">
+      Senior Software Engineer with 8+ years of experience building production SaaS, scalable web systems and AI-powered products. I work across TypeScript, Node.js, React, Python, machine learning, LLMs, RAG, cloud infrastructure and reliable delivery.
+    </p>
+    <div class="hero-actions">
+
+
+      <a class="btn primary" href="#projects">Explore my work →</a>
+      <a class="btn" href="mailto:mn.nadeem027@gmail.com">Contact me ↗</a>
+    </div>
+    <div class="hero-note">TALLINN, ESTONIA · EUROPE · REMOTE</div>
+    <div class="stats">
+      <div class="stat"><strong>8+</strong><span>Years engineering</span></div>
+      <div class="stat"><strong>10K+</strong><span>Daily users supported</span></div>
+      <div class="stat"><strong>100K+</strong><span>Concurrent users</span></div>
+      <div class="stat"><strong>3</strong><span>Engineering tracks</span></div>
+    </div>
+  </div>
+
+  
+  <div class="hero-visual">
+    <div class="systems-stage" aria-hidden="true">
+      <div class="systems-core">
+        <div class="core-halo halo-a"></div>
+        <div class="core-halo halo-b"></div>
+        <div class="core-dot"></div>
+        <div class="core-label">AI SYSTEMS</div>
+      </div>
+
+      <div class="orbit orbit-a">
+        <span class="orbit-node node-a"></span>
+        <span class="orbit-node node-b"></span>
+      </div>
+      <div class="orbit orbit-b">
+        <span class="orbit-node node-c"></span>
+        <span class="orbit-node node-d"></span>
+      </div>
+      <div class="orbit orbit-c">
+        <span class="orbit-node node-e"></span>
+      </div>
+
+      <div class="signal-line signal-1"></div>
+      <div class="signal-line signal-2"></div>
+      <div class="signal-line signal-3"></div>
+
+      <div class="system-chip chip-1"><span></span>Full Stack</div>
+      <div class="system-chip chip-2"><span></span>AI / ML</div>
+      <div class="system-chip chip-3"><span></span>Python</div>
+      <div class="system-chip chip-4"><span></span>Cloud</div>
+
+      <div class="system-status">
+        <span class="system-status-dot"></span>
+        <div>
+          <small>Engineering focus</small>
+          <strong>Production AI + scalable software</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</section>
+
+<div class="ticker"><div class="ticker-track">
+  <span>TypeScript</span><span>Python</span><span>Node.js</span><span>React</span><span>Next.js</span><span>NestJS</span><span>PyTorch</span><span>LLMs</span><span>RAG</span><span>AI Agents</span><span>FastAPI</span><span>AWS</span><span>GCP</span><span>Azure</span><span>Docker</span><span>Kubernetes</span><span>PostgreSQL</span><span>Kafka</span><span>GraphQL</span><span>Observability</span>
+  <span>TypeScript</span><span>Python</span><span>Node.js</span><span>React</span><span>Next.js</span><span>NestJS</span><span>PyTorch</span><span>LLMs</span><span>RAG</span><span>AI Agents</span><span>FastAPI</span><span>AWS</span><span>GCP</span><span>Azure</span>
+</div></div>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal"><div><div class="kicker">01 / Profile</div><h2>Engineering that survives production.</h2></div>
+    <p class="section-intro">A hybrid engineering profile spanning full-stack architecture, AI/ML integration and Python systems — with ownership from design through monitoring and support.</p></div>
+    <div class="about-grid">
+      <article class="panel reveal">
+        <p class="about-text">
+          I build production-grade web applications and intelligent systems where architecture, product behavior and operational reliability have to work together. My background covers domain-driven design, modular services, REST and GraphQL APIs, event-driven systems, automated testing, CI/CD, cloud infrastructure and observability.
+        </p>
+        <p class="about-text">
+          On the AI side, I have integrated LLM assistants, RAG, intelligent search, tool calling, evaluation workflows and AI agents into customer-facing products. My Python work extends into asyncio, streaming, local inference, MCP-compatible interfaces and production ML/AI foundations.
+        </p>
+        <div class="about-list">
+          <div><b>01</b> Full-stack product ownership</div><div><b>02</b> AI / ML integration</div>
+          <div><b>03</b> Python + async systems</div><div><b>04</b> Cloud-native delivery</div>
+          <div><b>05</b> Distributed architecture</div><div><b>06</b> Testing + observability</div>
+        </div>
+      </article>
+      <article class="panel reveal">
+        <div class="signal"><div class="num">25%</div><p>Targeted React / Next.js workflow latency improvement through query optimization, caching and rendering improvements.</p></div>
+        <div class="signal"><div class="num">40%</div><p>Database performance improvement on targeted Paxful transaction workloads through schema, index and query optimization.</p></div>
+        <div class="signal"><div class="num">30%</div><p>Faster time-to-production after standardizing Docker, Kubernetes and CI/CD delivery practices.</p></div>
+        <div class="signal"><div class="num">75%</div><p>Reduction in system crashes during a legacy-to-microservices modernization effort.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-head reveal"><div><div class="kicker">02 / Experience</div><h2>From architecture to AI.</h2></div>
+    <p class="section-intro">Eight-plus years across senior full-stack, AI/ML and Python engineering responsibilities.</p></div>
+    <div class="timeline">
+      <article class="exp reveal"><div class="date">NOV 2022 — PRESENT<br>EUROPE · REMOTE</div><div class="exp-card">
+        <div class="exp-top"><div><div class="exp-title">Senior Full Stack AI Engineer</div><div class="company">Proxify · Contract</div></div><span class="tag">CURRENT</span></div>
+        <p>Own production capabilities across TypeScript, NestJS, React and Next.js while integrating AI search, shared LLM services, RAG and structured outputs. Built distributed workflows, observability, CI/CD and architecture practices for platforms serving 10,000+ daily users.</p>
+        <div class="bullets"><span>DDD</span><span>RAG</span><span>LLM APIs</span><span>GraphQL</span><span>Kafka</span><span>AWS/GCP/Azure</span></div>
+      </div></article>
+      <article class="exp reveal"><div class="date">JAN 2022 — NOV 2022<br>UNITED STATES · REMOTE</div><div class="exp-card">
+        <div class="exp-top"><div><div class="exp-title">Senior Software Engineer</div><div class="company">Paxful · Contract</div></div><span class="tag">AI / SYSTEMS</span></div>
+        <p>Modernized legacy transaction capabilities into modular services, implemented resilient asynchronous processing, optimized PostgreSQL performance and standardized containerized delivery. AI/ML work included production ML workflows, LLM/RAG capabilities and evaluation practices.</p>
+        <div class="bullets"><span>Python</span><span>TypeScript</span><span>ML workflows</span><span>RAG</span><span>Docker</span><span>Kubernetes</span></div>
+      </div></article>
+      <article class="exp reveal"><div class="date">MAR 2018 — DEC 2021<br>HYBRID</div><div class="exp-card">
+        <div class="exp-top"><div><div class="exp-title">Full Stack / AI Engineer</div><div class="company">NETSOL Technologies</div></div><span class="tag">FOUNDATION</span></div>
+        <p>Built and scaled enterprise SaaS applications with TypeScript, JavaScript, Node.js, React and Python, supporting platforms with up to 100,000+ concurrent users. Developed ML-enabled capabilities, deep-learning workflows, LLM/RAG experiments and secure enterprise integrations.</p>
+        <div class="bullets"><span>Python</span><span>PyTorch</span><span>Django</span><span>React</span><span>PostgreSQL</span><span>AWS/Azure</span></div>
+      </div></article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head reveal"><div><div class="kicker">03 / Selected Work</div><h2>Products, platforms, AI.</h2></div>
+    <p class="section-intro">A cross-section of healthcare, intelligent retail and connected-care systems where software engineering and AI capabilities meet.</p></div>
+    <div class="projects">
+      <a class="project reveal" href="https://www.patientiq.io/" target="_blank" rel="noopener noreferrer"> <div class="project-index">01 · HEALTHCARE + ML</div><h3>PatientIQ ↗</h3> <p>Healthcare outcomes platform supporting structured patient data workflows, clinical research and machine-learning-ready capabilities. Built secure services and data workflows with production reliability in mind.</p> <div class="project-tags"><span>Python</span><span>PyTorch</span><span>PostgreSQL</span><span>AWS</span></div><div class="project-link">Visit patientiq.io →</div> </a>
+      <a class="project reveal" href="https://haystack.co/" target="_blank" rel="noopener noreferrer"> <div class="project-index">02 · AI SEARCH</div><h3>Haystack ↗</h3> <p>AI-enabled local shopping and inventory platform using intelligent retrieval, ranking, distributed search and event-driven processing for frequently changing product availability.</p> <div class="project-tags"><span>TypeScript</span><span>Node.js</span><span>React</span><span>Elasticsearch</span></div><div class="project-link">Visit haystack.co →</div> </a> <a class="project reveal" href="https://www.care.coach/" target="_blank" rel="noopener noreferrer"> <div class="project-index">03 · AI + CONNECTED CARE</div><h3>Care.coach ↗</h3> <p>Customer-facing connected-care platform combining secure product engineering, cloud deployments and intelligent workflows to support seniors and keep families informed.</p> <div class="project-tags"><span>Python</span><span>AI Agents</span><span>PostgreSQL</span><span>Docker</span></div><div class="project-link">Visit care.coach →</div> </a>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-head reveal"><div><div class="kicker">04 / Technical Stack</div><h2>Three lanes. One engineering system.</h2></div>
+    <p class="section-intro">The portfolio is intentionally positioned across the three role families you are targeting.</p></div>
+    <div class="skills">
+      <article class="skill reveal"><strong>Full Stack Engineering</strong><p>TypeScript, JavaScript, Node.js, React, Next.js, NestJS, REST, GraphQL, OpenAPI, WebSockets, DDD, modular architecture and microservices.</p></article>
+      <article class="skill reveal"><strong>AI / ML Engineering</strong><p>Python, PyTorch, machine learning, LLM applications, RAG, intelligent search, AI agents, tool calling, prompt engineering and evaluation frameworks.</p></article>
+      <article class="skill reveal"><strong>Python Engineering</strong><p>Python, asyncio, threading, FastAPI, Django, streaming, local inference, Ollama, llama.cpp, MCP-compatible interfaces and reliable API architecture.</p></article>
+      <article class="skill reveal"><strong>Cloud & DevOps</strong><p>AWS, GCP, Azure, Docker, Kubernetes, GitHub Actions, GitLab CI/CD, continuous delivery and containerized deployments.</p></article>
+      <article class="skill reveal"><strong>Distributed Systems</strong><p>Kafka, queues, background workers, retries, idempotency, dead-letter queues, asynchronous processing and event-driven architecture.</p></article>
+      <article class="skill reveal"><strong>Quality & Observability</strong><p>TDD, Jest, Playwright, React Testing Library, code reviews, Prometheus, Grafana, Datadog, Sentry, tracing, metrics and alerting.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="kicker" style="color:#6db7ff">05 / Contact</div>
+      <h2>Let's build something that works beyond the demo.</h2>
+      <p>Open to remote opportunities spanning Senior Full Stack AI Engineering, Senior AI/ML Engineering and Senior Python Engineering.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:mn.nadeem027@gmail.com"><small>Email</small><strong>mn.nadeem027@gmail.com ↗</strong></a>
+        <a class="contact-link" href="https://www.linkedin.com/in/muhammad-nadeem-1453ba40a/" target="_blank" rel="noopener"><small>LinkedIn</small><strong>muhammad-nadeem-1453ba40a ↗</strong></a>
+        <a class="contact-link" href="https://github.com/dev-mnadeem" target="_blank" rel="noopener"><small>GitHub</small><strong>github.com/dev-mnadeem ↗</strong></a>
+        <div class="contact-link"><small>Location</small><strong>Tallinn, Harjumaa, Estonia</strong></div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <code>// ready_for_new_challenges</code>
+      <code>role = "Senior Full Stack AI Engineer";</code>
+      <code>alt  = "Senior AI/ML Engineer";</code>
+      <code>alt  = "Senior Python Engineer";</code>
+      <code>mode = "remote / europe";</code>
+      <code>build("reliable systems");</code>
+      <br>
+      <a class="btn primary" href="mailto:mn.nadeem027@gmail.com">Start a conversation ↗</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="container footer-inner"><span>© 2026 Muhammad Nadeem. All rights reserved.</span><span>Built with HTML · CSS · JavaScript · AI engineering mindset</span><a href="#home">Back to top ↑</a></div></footer>
+</div>
+
+<script>
+const roles = [
+  {title:"Senior Full Stack AI Engineer", availability:"AVAILABLE FOR FULL STACK WORK"},
+  {title:"Senior AI/ML Engineer", availability:"AVAILABLE FOR AI/ML WORK"},
+  {title:"Senior Python Engineer", availability:"AVAILABLE FOR PYTHON WORK"}
+];
+let roleIndex = 0;
+const titleEl = document.getElementById("roleTitle");
+const availEl = document.getElementById("availability");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function cycleRole(){
+  if(reduceMotion) return;
+  titleEl.classList.add("out");
+  setTimeout(()=>{
+    roleIndex = (roleIndex + 1) % roles.length;
+    titleEl.textContent = roles[roleIndex].title;
+    availEl.querySelector("strong").textContent = roles[roleIndex].availability;
+    titleEl.classList.remove("out");
+  },420);
+}
+if(!reduceMotion) setInterval(cycleRole, 2500);
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting) entry.target.classList.add("show")});
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+const canvas = document.getElementById("ai-canvas");
+const ctx = canvas.getContext("2d");
+let w,h,dpr,nodes=[];
+function resize(){
+  dpr=Math.min(window.devicePixelRatio||1,2);
+  w=canvas.clientWidth; h=canvas.clientHeight;
+  canvas.width=w*dpr; canvas.height=h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+  const count=Math.min(42,Math.floor(w/28));
+  nodes=Array.from({length:count},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.6+1}));
+}
+function draw(){
+  ctx.clearRect(0,0,w,h);
+  for(const p of nodes){
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle="rgba(23,105,255,.34)";ctx.fill();
+  }
+  for(let i=0;i<nodes.length;i++) for(let j=i+1;j<nodes.length;j++){
+    const a=nodes[i],b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,dist=Math.hypot(dx,dy);
+    if(dist<135){
+      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+      ctx.strokeStyle=`rgba(65,145,220,${(1-dist/135)*.12})`;ctx.stroke();
+    }
+  }
+  if(!reduceMotion) requestAnimationFrame(draw);
+}
+window.addEventListener("resize",resize);resize();draw();
+</script>
+
+<script id="nadeem-interactions">
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("mousemove", e => {
+      const r = card.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width - .5) * 4;
+      const y = ((e.clientY - r.top) / r.height - .5) * -4;
+      card.style.setProperty("--rx", `${y}deg`);
+      card.style.setProperty("--ry", `${x}deg`);
+    });
+    card.addEventListener("mouseleave", () => {
+      card.style.setProperty("--rx", "0deg");
+      card.style.setProperty("--ry", "0deg");
+    });
+  });
+});
+</script>
+
+</body>
+</html>
