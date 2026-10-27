@@ -22,3 +22,7 @@ not establish that a separate hosted deployment has been updated.
 repository served locally, with browser rendering and JavaScript error checks
 recorded in [native-browser.json](docs/native-browser.json). They do not certify
 the state of any separate hosted deployment.
+
+## Author
+
+[**Muhammad Nadeem**](https://github.com/dev-mnadeem)
