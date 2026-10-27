@@ -1,0 +1,8 @@
+{
+  "mode": "Static portfolio source; no hosted deployment claimed",
+  "checks": [
+    "Browser rendering",
+    "Desktop and mobile capture",
+    "No JavaScript page errors"
+  ]
+}
